@@ -56,10 +56,26 @@ async function main() {
   const reservesAfter = await pair.getReserves();
   console.log("Reserves after swap:", hre.ethers.formatEther(reservesAfter[0]), hre.ethers.formatEther(reservesAfter[1]));
 
-  // Check balance
-  const balanceA = await tokenA.balanceOf(deployer.address);
-  const balanceB = await tokenB.balanceOf(deployer.address);
-  console.log("Deployer balance - TokenA:", hre.ethers.formatEther(balanceA), "TokenB:", hre.ethers.formatEther(balanceB));
+  // Check balance after swap
+  let balanceA = await tokenA.balanceOf(deployer.address);
+  let balanceB = await tokenB.balanceOf(deployer.address);
+  console.log("Deployer balance after swap - TokenA:", hre.ethers.formatEther(balanceA), "TokenB:", hre.ethers.formatEther(balanceB));
+
+  // Test burn: Withdraw liquidity
+  const lpBalance = await pair.balanceOf(deployer.address);
+  await pair.approve(pairAddress, lpBalance);
+  await pair.transfer(pairAddress, lpBalance);
+  await pair.burn(deployer.address);
+  console.log("Liquidity burned");
+
+  // Check final balance
+  balanceA = await tokenA.balanceOf(deployer.address);
+  balanceB = await tokenB.balanceOf(deployer.address);
+  console.log("Deployer final balance - TokenA:", hre.ethers.formatEther(balanceA), "TokenB:", hre.ethers.formatEther(balanceB));
+
+  // Check reserves after burn
+  const reservesFinal = await pair.getReserves();
+  console.log("Reserves after burn:", hre.ethers.formatEther(reservesFinal[0]), hre.ethers.formatEther(reservesFinal[1]));
 }
 
 main().catch((error) => {
