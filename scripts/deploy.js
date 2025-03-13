@@ -62,25 +62,14 @@ async function main() {
   console.log("Reserves before swap:", hre.ethers.formatEther(reservesBefore[0]), hre.ethers.formatEther(reservesBefore[1]));
 
   // Test swap: Swap 0.01 WMON for MONs
-  const amountIn = hre.ethers.parseEther("0.01");
-
-  // อ่าน reserves ของ pair
-
-  const monsReserve = reservesBefore[0]; // สมมติ MONs อยู่ที่ index 0
-  const wmonReserve = reservesBefore[1]; // สมมติ WMON อยู่ที่ index 1
-
-  // คำนวณจำนวน token ที่จะได้รับหลังหักค่าธรรมเนียม
-  const amountInWithFee = (amountIn * BigInt(997)) / BigInt(1000); // 0.3% fee
-  const amountOut = (monsReserve * amountInWithFee) / (wmonReserve + amountInWithFee);
-
-  // โอน WMON เข้า pair ก่อน swap
-  await WMON.transfer(pairAddress, amountIn);
-
-  // ทำการ swap: 0.01 WMON → MONs
-  await pair.swap(amountOut, 0, deployer.address, "0x");
-
-  // แสดงผลลัพธ์
-  console.log(`Swap completed: 0.01 WMON -> ${hre.ethers.formatEther(amountOut)} MONs`);
+  // const amountIn = hre.ethers.parseEther("0.01");
+  // const monsReserve = reservesBefore[0]; // สมมติ MONs อยู่ที่ index 0
+  // const wmonReserve = reservesBefore[1]; // สมมติ WMON อยู่ที่ index 1
+  // const amountInWithFee = (amountIn * BigInt(997)) / BigInt(1000); // 0.3% fee
+  // const amountOut = (monsReserve * amountInWithFee) / (wmonReserve + amountInWithFee);
+  // await WMON.transfer(pairAddress, amountIn);
+  // await pair.swap(amountOut, 0, deployer.address, "0x");
+  // console.log(`Swap completed: 0.01 WMON -> ${hre.ethers.formatEther(amountOut)} MONs`);
 
 
   // Check reserves and balance after swap
@@ -91,11 +80,11 @@ async function main() {
   console.log("Deployer balance after swap - WMON:", hre.ethers.formatEther(balanceA), "MONs:", hre.ethers.formatEther(balanceB));
 
   //Test burn: Withdraw liquidity
-  const lpBalance = await pair.balanceOf(deployer.address);
-  await pair.approve(pairAddress, lpBalance);
-  await pair.transfer(pairAddress, lpBalance);
-  await pair.burn(deployer.address);
-  console.log("Liquidity burned");
+  // const lpBalance = await pair.balanceOf(deployer.address);
+  // await pair.approve(pairAddress, lpBalance);
+  // await pair.transfer(pairAddress, lpBalance);
+  // await pair.burn(deployer.address);
+  // console.log("Liquidity burned");
 
   // Check final balance and reserves
   balanceA = await WMON.balanceOf(deployer.address);

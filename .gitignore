@@ -17,6 +17,7 @@ node_modules
 ignition/deployments/chain-31337
 .env
 
+monswap-frontend
 monswap-frontend/node_modules/
 monswap-frontend/dist/
 
