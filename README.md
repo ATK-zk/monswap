@@ -1,27 +1,55 @@
-# Monswap DEX
+# Monswap (Backend)
 
-A decentralized exchange (DEX) built on Monad Testnet, inspired by BeanSwap, PancakeSwap.
+A decentralized exchange (DEX) backend built on Monad Testnet. This repository contains the smart contracts powering Monswap, inspired by Uniswap and BeanSwap.
+
+## Overview
+- **Purpose:** Provides the core smart contracts for token swapping and liquidity provision on Monad Testnet.
+- **Frontend:** The React frontend is maintained separately at [monswap_frontend](https://github.com/ATK-zk/monswap_frontend).
+- **Live Demo:** [https://monswap.vercel.app/](https://monswap.vercel.app/)
+
+## Smart Contracts
+- **TokenA:** `0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701`
+- **TokenB:** `0x414C48Ce59EC0B3083537aA885934c6b23541F17`
+- **Factory:** `0x0d4e71Dd89c538A3383B5386AB06047058f20590`
+- **Pair:** `0x3585E8fa506E723405E016FE0172fCBfbDe2Bfd6`
 
 ## Features
-- Add Liquidity
-- Swap Tokens (WMON ↔ MONs)
-- Remove Liquidity
-- Multi-wallet support (MetaMask, Rabby, Phantom, Backpack, etc.)
-
-## Deployed Contracts
-- WMON: `0x85fad09dC4C30d206BFB9C9fa787323E7978b653`
-- MONs: `0x9bBe7B28C76eeF5df38040e19216A15961Ff2C3C`
-- Factory: `0xE15AEE30c127bd30b895EDAF321346CDCBBbD7F7`
-- Pair: `0xdCAa78cAF20D09a38524B9dfF2c68c0e37eE5EC6`
-
-## Frontend
-- Live URL: [https://monswap.vercel.app/](https://monswap.vercel.app/)
-- Built with: React, Tailwind CSS
+- Deployed on Monad Testnet
+- Token swapping (WMON ↔ MONs)
+- Liquidity provision and removal
 
 ## Setup
-1. Clone repo: `git clone https://github.com/your-username/monswap.git`
-2. Install dependencies:
-   - Backend: `cd monswap && npm install`
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ATK-zk/monswap.git
+   cd monswap
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+
+3. **Configure Hardhat:**
+   Update hardhat.config.js with your Monad Testnet RPC and private key.
+
+4. **Deploy contracts:**
+   npx hardhat run scripts/deploy.js --network monad_testnet
 
 ## Network
-- Monad Testnet (Chain ID: 10143, RPC: `https://testnet-rpc.monad.xyz`)
+   Monad Testnet
+   Chain ID: 10143
+   RPC: https://testnet-rpc.monad.xyz
+
+## Development
+1. **Compile contracts:**
+   ```bash
+   npx hardhat compile
+
+2. **Test contracts:**
+   ```bash
+   npx hardhat test
+
+## Contributing
+Feel free to open issues or submit pull requests to improve the contracts!
+
+## License
+MIT
