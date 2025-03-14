@@ -8,8 +8,8 @@ A decentralized exchange (DEX) backend built on Monad Testnet. This repository c
 - **Live Demo:** [https://monswap.vercel.app/](https://monswap.vercel.app/)
 
 ## Smart Contracts
-- **TokenA:** `0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701`
-- **TokenB:** `0x414C48Ce59EC0B3083537aA885934c6b23541F17`
+- **WMON:** `0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701`
+- **MONs:** `0x414C48Ce59EC0B3083537aA885934c6b23541F17`
 - **Factory:** `0x0d4e71Dd89c538A3383B5386AB06047058f20590`
 - **Pair:** `0x3585E8fa506E723405E016FE0172fCBfbDe2Bfd6`
 
@@ -36,7 +36,9 @@ A decentralized exchange (DEX) backend built on Monad Testnet. This repository c
 
 ## Network
    Monad Testnet
+
    Chain ID: 10143
+   
    RPC: https://testnet-rpc.monad.xyz
 
 ## Development
@@ -49,7 +51,7 @@ A decentralized exchange (DEX) backend built on Monad Testnet. This repository c
    npx hardhat test
 
 ## Contributing
-Feel free to open issues or submit pull requests to improve the contracts!
+   Feel free to open issues or submit pull requests to improve the contracts!
 
 ## License
-MIT
+   MIT
