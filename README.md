@@ -54,4 +54,8 @@ A decentralized exchange (DEX) backend built on Monad Testnet. This repository c
    Feel free to open issues or submit pull requests to improve the contracts!
 
 ## License
+<<<<<<< HEAD
    MIT
+=======
+MIT
+>>>>>>> a7417c308e200cbdd6dde30a42f291c7f1686017
